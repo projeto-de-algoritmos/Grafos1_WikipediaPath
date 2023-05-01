@@ -1,6 +1,6 @@
 from collections import deque
 
-def bfs(start_page, end_page):
+def bfs(start_page, end_page) -> list:
     start_page.parent_page = None
     queue = deque([start_page])
     visited = set()
@@ -19,11 +19,11 @@ def bfs(start_page, end_page):
                             link.parent_page = current_page
                             queue.append(link)
                     except KeyError:
-                        print('keyerror')
+                        # print('keyerror')
                         pass
                 err = False
             except TimeoutError:
-                print("timeout")
+                # print('timeout')
                 err = True
     
     return None
