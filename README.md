@@ -9,17 +9,17 @@
 | 19/0033088  | Lucas Braun Vieira Xavier |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona.
+Esse é um programa simples que procura o caminho de hyperlinks necessário para ir de uma página do Wikipedia para outra, utilizando os algoritmos de BFS ou DFS.
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
-**Linguagem**: Python<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-
-## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
-
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+Com Python 3 instalado na máquina, primeiro faça no terminal:
+```
+pip install -r requirements.txt
+```
+E depois, basta rodar a main.py:
+```
+python3 src/main.py
+```
