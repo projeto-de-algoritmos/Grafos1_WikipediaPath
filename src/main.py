@@ -1,34 +1,46 @@
 from bfs import bfsPath
-from dfs import dfs
+from dfs import dfsPath
 import wikipediaapi
 
-
 def choosePages(wiki: wikipediaapi.Wikipedia) -> tuple:
-    page1 = wiki.page(input("Page to start search from: "))
-    page2 = wiki.page(input("Page to end search at: "))
-    return (page1, page2)
+    while True:
+        page1 = wiki.page(input('Page to start search from: '))
+        page2 = wiki.page(input('Page to end search at: '))
+        if not page1.exists():
+            print(f'Page "{page1.title}" does not exist.')
+            continue
+        if not page2.exists():
+            print(f'Page "{page2.title}" does not exist.')
+            continue
+        return (page1, page2)
 
 def chooseSearch():
-    option = input(f"[1] BFS\n[2] DFS\n")
-    return option
+    print('[1] BFS\n[2] DFS')
+    while True:
+        option = input()
+        if option != '1' and option != '2':
+            print('Must be 1 or 2.')
+            continue
+        return option
+
+def report(result:list):
+    print('Distance between pages:', len(result) - 1)
+    print('Path:')
+    print(*result, sep=' -> ')
 
 def main():
-    # wiki = wikipediaapi.Wikipedia("pt", proxies={'https' : 'http://172.31.67.201:8888'})
-    wiki = wikipediaapi.Wikipedia("pt")
-    visited = set()
-    path = []
-    result = []
+    wiki = wikipediaapi.Wikipedia('pt')
 
     pages = choosePages(wiki)
     option = chooseSearch()
 
-
-    result = bfsPath(pages[0], pages[1]) if option == '1' else dfs(pages[0], pages[1], visited, path, depth=0, maxDepth=3)
+    print('Finding path...')
+    result = bfsPath(pages[0], pages[1]) if option == '1' else dfsPath(pages[0], pages[1], 4)
+    
     if result is not None:
-        print(" -> ".join(result))
+        report(result)
     else:
-        print(f"{pages[1].title} not found.")
+        print(f'{pages[1].title} not found.')
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
