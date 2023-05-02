@@ -8,6 +8,8 @@
 | 19/0014032  | Guilherme Rogelin Vial |
 | 19/0033088  | Lucas Braun Vieira Xavier |
 
+## [Vídeo](https://youtu.be/W-vfKS6r8Yc)
+
 ## Sobre 
 Esse é um programa simples que procura o caminho de hyperlinks necessário para ir de uma página do Wikipedia para outra, utilizando os algoritmos de BFS ou DFS.
 
